@@ -7,18 +7,19 @@ Before running this code, create the following view:
 create view log_v as select substr(path, 10) title, ip, method, status, time, id from log;
 ```
 ### How to run this code
-1. Assuming you have the VM installed, find the fullstack-nanodegree-vm folder in your local directory and then find the vagrant folder within that directory and open a terminal window.
-2. Run vagrant ssh at the prompt to connect to the VM.
+1. Clone this repository to your local drive.
+2. Assuming you have the VM installed, copy the news.py file into the fullstack-nanodegree-vm/vagrant directory.
+3. Open a terminal window from the fullstack-nanodegree-vm/vagrant directory, or simply open a terminal window and cd into that directory.
+4. Run vagrant ssh at the prompt to connect to the VM.
 ```
 $ vagrant ssh
 ```
-3. cd into the vagrant subdirectory
+5. cd into the vagrant subdirectory
 ```
 vagrant@vagrant:~$ cd /vagrant
 ```
-4. Run the news.py program
+6. Run the news.py program
 ```
 vagrant@vagrant:/vagrant$ python news.py
 ```
-5. The program's output will be displayed in the terminal window.
-
+7. The program's output will be displayed in the terminal window.
