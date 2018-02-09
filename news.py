@@ -23,7 +23,7 @@ def top_articles():
     """print the most downloaded articles"""
     query = ("select count, slug from (select count(l.*) count, " +
              "a.slug from log l, articles a where l.path != '/' and " +
-             "a.slug = substr(l.path, 10)  group by path, slug " +
+             "'/article/' || a.slug = l.path group by path, slug "
              "order by count desc) as foo limit 3")
     articles = sql_helper(query)
     print("The three most popular articles are:")
@@ -33,8 +33,8 @@ def top_articles():
 
 def popular_authors():
     """print the most popular authors"""
-    query = ("select auth.name, count(v.title) count " +
-             "from log_v v join articles a on v.title=a.slug " +
+    query = ("select auth.name, count(l.*) count " +
+             "from log l join articles a on '/article/' || a.slug = l.path " +
              "left join authors auth ON a.author=auth.id " +
              "group by auth.name order by count desc")
     authors = sql_helper(query)
