@@ -21,9 +21,9 @@ def sql_helper(query):
 
 def top_articles():
     """print the most downloaded articles"""
-    query = ("select count, slug from (select count(l.*) count, " +
-             "a.slug from log l, articles a where l.path != '/' and " +
-             "'/article/' || a.slug = l.path group by path, slug "
+    query = ("select count, title from (select count(l.*) count, " +
+             "a.title from log l, articles a where l.path != '/' and " +
+             "'/article/' || a.slug = l.path group by path, title "
              "order by count desc) as foo limit 3")
     articles = sql_helper(query)
     print("The three most popular articles are:")
