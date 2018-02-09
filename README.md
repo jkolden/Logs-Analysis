@@ -9,6 +9,7 @@ This project uses psycopg2 to query a mock PostgreSQL database for a fictional n
 The database that this program queries contains three tables: articles, authors and log. The definitions of these tables is as follows:
 
 ### articles table definition:
+```
 author | integer                  | not null
 title  | text                     | not null
 slug   | text                     | not null
@@ -16,19 +17,24 @@ lead   | text                     |
 body   | text                     |
 time   | timestamp with time zone | default now()
 id     | integer                  | not null default nextval('articles_id_seq'::regclass)
+```
 
 ### authors table definition:
+```
 name   | text    | not null
 bio    | text    |
 id     | integer | not null default nextval('authors_id_seq'::regclass)
+```
 
 ### log table definition
+```
 path   | text                     |
 ip     | inet                     |
 method | text                     |
 status | text                     |
 time   | timestamp with time zone | default now()
 id     | integer                  | not null default nextval('log_id_seq'::regclass)
+```
 
 ## How to run this code
 
